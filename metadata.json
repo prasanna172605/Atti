@@ -1,0 +1,6 @@
+{
+  "name": "ATTI Community",
+  "description": "Technology and creative community portfolio",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,18 +1,72 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #014AE8;
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Plus Jakarta Sans", sans-serif;
-  --font-hand: "Caveat", cursive;
+  --color-brand-black: #000000;
+  --color-brand-dark: #08080a;
+  --color-brand-surface: #0f0f12;
+  --color-brand-blue: #2563ff;
+  --color-brand-blue-hover: #1d4ed8;
+  --color-brand-card: #0c0c0e;
+  --color-brand-card-border: rgba(255, 255, 255, 0.08);
+  --font-sans: "Host Grotesk", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+}
+
+:root {
+  color-scheme: dark;
 }
 
 body {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Host Grotesk", "Plus Jakarta Sans", sans-serif;
+  background-color: #000000;
+  color: #ffffff;
   -webkit-font-smoothing: antialiased;
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23014AE8" stroke="%23ffffff" stroke-width="1.5" d="M4.3 2.1l6.7 18.7 3.1-7.7 7.7-3.1L4.3 2.1z"/></svg>') 4 2, auto;
+  text-rendering: optimizeLegibility;
 }
 
-a, button, [role="button"], input, select, textarea, .cursor-pointer {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23014AE8" stroke="%23ffffff" stroke-width="1.5" d="M11 2a3 3 0 0 1 3 3v2.26l2.35-1.18a3 3 0 0 1 2.69 5.37l-1.35.67A3 3 0 0 1 18 15v1a4 4 0 0 1-4 4h-3a4 4 0 0 1-4-4V5a3 3 0 0 1 3-3z"/></svg>') 11 2, pointer !important;
+/* Reference card styling */
+.mg-card {
+  background: #0c0c0e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+.mg-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mg-card-hover:hover {
+  border-color: rgba(37, 99, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e1e24;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563ff;
+}
+
+/* Infinite Marquee Carousel */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+

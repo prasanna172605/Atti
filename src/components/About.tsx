@@ -62,7 +62,7 @@ export default function About() {
                </li>
                <li className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-brand-blue rounded-xl flex items-center justify-center text-white shadow-lg shrink-0"><Mail size={24} /></div>
-                  <span>attiofficial.in@gmail.com</span>
+                  <span>onevision001.in@gmail.com</span>
                </li>
             </ul>
          </div>

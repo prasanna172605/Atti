@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://theonevision.com/sitemap.xml
+Sitemap: https://onevision.web.app/sitemap.xml

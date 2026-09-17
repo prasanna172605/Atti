@@ -1,8 +1,27 @@
 import React, { useState } from 'react';
 import { ArrowRight, Star, CheckCircle2, ChevronDown, ChevronUp, Layers, Target, Compass, Sparkles, UserCheck, ShieldCheck } from 'lucide-react';
 import { MAXGROWTH_ASSETS } from '../data/maxgrowthImages';
+import SEOHead from '../components/SEOHead';
 import ServicesShowcase from '../components/ServicesShowcase';
 import HandsGetInTouch from '../components/HandsGetInTouch';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Digital Marketing and Web Development Services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "One Vision",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ariyalur",
+      "addressRegion": "TN",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": "Tamil Nadu",
+  "description": "Comprehensive digital solutions including UI/UX design, SEO, social media marketing, and custom website creation."
+};
 
 export default function ServicesPage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
@@ -116,7 +135,12 @@ export default function ServicesPage() {
 
   return (
     <div className="bg-black text-white min-h-screen">
-      
+      <SEOHead 
+        title="Digital Marketing, Web Design & SEO Services | One Vision"
+        description="Explore our comprehensive digital solutions including UI/UX design, SEO, social media marketing, and bespoke website creation for local and global brands."
+        canonicalUrl="/services"
+        schema={serviceSchema}
+      />
       {/* 1. SERVICES SHOWCASE / #Services EXACT MASTER EXPERIENCE */}
       <ServicesShowcase />
 

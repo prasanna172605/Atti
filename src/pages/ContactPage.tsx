@@ -1,7 +1,26 @@
 import React, { useState } from 'react';
 import { ArrowRight, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
 import { MAXGROWTH_ASSETS } from '../data/maxgrowthImages';
+import SEOHead from '../components/SEOHead';
 import HandsGetInTouch from '../components/HandsGetInTouch';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "One Vision",
+  "image": "https://onevision.web.app/logo.jpeg",
+  "description": "Ready to scale your business? Get in touch with One Vision in Ariyalur, Tamil Nadu for web development and digital marketing solutions.",
+  "url": "https://onevision.web.app",
+  "telephone": "+91 87606 68866",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Ariyalur",
+    "addressLocality": "Ariyalur",
+    "addressRegion": "TN",
+    "postalCode": "621704",
+    "addressCountry": "IN"
+  }
+};
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -21,6 +40,12 @@ export default function ContactPage() {
 
   return (
     <div className="bg-black text-white min-h-screen pt-36 pb-24 md:pt-48 md:pb-32 relative overflow-hidden">
+      <SEOHead 
+        title="Contact One Vision | Digital Marketing Agency in Ariyalur"
+        description="Ready to scale your business? Get in touch with One Vision in Ariyalur, Tamil Nadu for web development and digital marketing solutions."
+        canonicalUrl="/contact"
+        schema={localBusinessSchema}
+      />
       
       {/* Background Hands Reaching Out visual asset */}
       <div className="absolute top-20 right-0 w-1/2 h-[600px] opacity-15 pointer-events-none overflow-hidden hidden lg:block">

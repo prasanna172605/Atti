@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEOHead from '../components/SEOHead';
 import HandsGetInTouch from '../components/HandsGetInTouch';
 
 interface Project {
@@ -90,6 +91,11 @@ export default function WorkPage() {
 
   return (
     <div className="bg-[#000000] text-white min-h-screen">
+      <SEOHead 
+        title="Our Work & Case Studies | One Vision Digital Solutions"
+        description="View our portfolio of high-converting websites and successful digital marketing campaigns built for ambitious businesses."
+        canonicalUrl="/work"
+      />
 
       {/* HERO — exact MaxGrowth: small triangle badge, "Selected Works" dual font, centered subtitle */}
       <section className="pt-36 pb-12 sm:pt-44 sm:pb-16 px-6 sm:px-8 lg:px-10 max-w-7xl mx-auto text-center">

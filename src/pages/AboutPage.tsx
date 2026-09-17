@@ -1,6 +1,32 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2, Phone, Mail, Instagram } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
 import HandsGetInTouch from '../components/HandsGetInTouch';
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "One Vision",
+  "url": "https://onevision.web.app",
+  "logo": "https://onevision.web.app/logo.jpeg",
+  "foundingDate": "2024",
+  "founders": [
+    {
+      "@type": "Person",
+      "name": "Prasanna"
+    },
+    {
+      "@type": "Person",
+      "name": "Hari Karthick"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ariyalur",
+    "addressRegion": "TN",
+    "addressCountry": "IN"
+  }
+};
 
 export default function AboutPage() {
   const whyChooseUs = [
@@ -63,6 +89,12 @@ export default function AboutPage() {
 
   return (
     <div className="bg-[#000000] text-white min-h-screen selection:bg-white selection:text-black">
+      <SEOHead 
+        title="About One Vision | Digital Growth Agency in Ariyalur, Tamil Nadu"
+        description="Meet the founders of One Vision. We are an Ariyalur-based digital agency dedicated to building high-converting websites and scalable marketing systems."
+        canonicalUrl="/about"
+        schema={organizationSchema}
+      />
 
       {/* ── 1. HERO with teal/blue ambient glow (matching MaxGrowth about page) ── */}
       <section className="relative min-h-[90vh] flex flex-col justify-between overflow-hidden">

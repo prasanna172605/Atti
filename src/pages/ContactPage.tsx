@@ -25,17 +25,46 @@ const localBusinessSchema = {
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     phone: '',
     website: '',
     budget: '$1,000 - $3,000',
     details: ''
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [faxNumber, setFaxNumber] = useState('');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus('submitting');
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          fax_number: faxNumber
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Unable to send your enquiry right now. Please try again in a moment.');
+      }
+
+      setStatus('success');
+    } catch (err: any) {
+      console.error('Contact form submission error:', err);
+      setErrorMessage(err.message || 'Unable to send your enquiry right now. Please try again in a moment.');
+      setStatus('error');
+    }
   };
 
   return (
@@ -121,20 +150,31 @@ export default function ContactPage() {
           {/* Right Column: Intake Form matching exact reference fields */}
           <div className="lg:col-span-7">
             <div className="p-8 sm:p-12 rounded-3xl bg-[#08080a] border border-white/[0.08] shadow-2xl">
-              {submitted ? (
-                <div className="py-16 text-center space-y-4">
+              {status === 'success' ? (
+                <div className="py-16 text-center space-y-4 animate-fadeIn">
                   <div className="w-12 h-12 rounded-full bg-[#2563FF]/20 border border-[#2563FF]/40 text-[#2563FF] flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl font-medium text-white">Inquiry Received</h3>
+                  <h3 className="text-2xl font-medium text-white">Enquiry received.</h3>
                   <p className="text-neutral-400 text-sm max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to The One Vision. Our team has received your project parameters and will respond within 24 hours.
+                    Thank you for reaching out to One Vision. We'll get back to you shortly.
                   </p>
                   <button
-                    onClick={() => setSubmitted(false)}
-                    className="mt-6 px-6 py-2.5 rounded-full bg-white text-black text-xs font-semibold tracking-wide"
+                    onClick={() => {
+                      setFormData({
+                        name: '',
+                        email: '',
+                        phone: '',
+                        website: '',
+                        budget: '$1,000 - $3,000',
+                        details: ''
+                      });
+                      setFaxNumber('');
+                      setStatus('idle');
+                    }}
+                    className="mt-6 px-6 py-2.5 rounded-full bg-white text-black text-xs font-semibold tracking-wide cursor-pointer transition-transform hover:scale-105 active:scale-95"
                   >
-                    Submit Another Inquiry
+                    Submit Another Enquiry
                   </button>
                 </div>
               ) : (
@@ -151,6 +191,21 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Jane Doe"
+                      className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/[0.08] text-white text-sm focus:outline-none focus:border-white/30 transition-colors placeholder:text-neutral-600"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="block text-xs font-medium uppercase tracking-wider text-neutral-400 mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="jane@example.com"
                       className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/[0.08] text-white text-sm focus:outline-none focus:border-white/30 transition-colors placeholder:text-neutral-600"
                     />
                   </div>
@@ -204,10 +259,11 @@ export default function ContactPage() {
                   {/* Tell us about your business and goal */}
                   <div>
                     <label className="block text-xs font-medium uppercase tracking-wider text-neutral-400 mb-2">
-                      Tell us about your business and goal:
+                      Tell us about your business and goal *
                     </label>
                     <textarea
                       rows={4}
+                      required
                       value={formData.details}
                       onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                       placeholder="Describe what services you offer and what objectives you want to achieve..."
@@ -215,12 +271,32 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  {/* Hidden Honeypot Field for Spam Protection */}
+                  <div className="hidden" aria-hidden="true">
+                    <input
+                      type="text"
+                      name="fax_number"
+                      value={faxNumber}
+                      onChange={(e) => setFaxNumber(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
+                  {/* Error display */}
+                  {status === 'error' && errorMessage && (
+                    <div className="p-4 rounded-xl bg-red-950/20 border border-red-900/40 text-red-400 text-xs text-center leading-relaxed font-mono">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   {/* Submit button */}
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-full bg-white hover:bg-neutral-200 text-black font-semibold text-sm tracking-tight transition-all shadow-md active:scale-95 flex items-center justify-center gap-2"
+                    disabled={status === 'submitting'}
+                    className="w-full py-4 rounded-full bg-white hover:bg-neutral-200 disabled:bg-neutral-800 disabled:text-neutral-500 text-black font-semibold text-sm tracking-tight transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
                   >
-                    <span>Submit</span>
+                    <span>{status === 'submitting' ? 'Sending...' : 'Submit'}</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
 

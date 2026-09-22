@@ -88,12 +88,12 @@ export default function GrowthSystems() {
           </div>
 
           {/* Tab Navigation Pill Group */}
-          <div className="flex items-center gap-2 bg-[#0a0a0e] p-1.5 rounded-full border border-white/[0.08] self-start md:self-auto">
+          <div className="flex items-center gap-1.5 bg-[#0a0a0e] p-1.5 rounded-full border border-white/[0.08] self-start md:self-auto overflow-x-auto no-scrollbar max-w-full">
             {systems.map((s, idx) => (
               <button
                 key={s.id}
                 onClick={() => setActiveTab(idx)}
-                className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer ${
+                className={`px-3.5 sm:px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer whitespace-nowrap ${
                   activeTab === idx
                     ? 'bg-white text-black shadow-md'
                     : 'text-neutral-400 hover:text-white'

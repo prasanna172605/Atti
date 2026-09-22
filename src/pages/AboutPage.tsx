@@ -149,7 +149,6 @@ export default function AboutPage() {
 
         {/* Bottom info bar — like MaxGrowth */}
         <div className="relative z-10 border-t border-white/[0.06] px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto w-full py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-neutral-500 uppercase tracking-widest">
-          <span>Est. 2024</span>
           <span>Scroll to explore ↓</span>
           <span>We live in the details</span>
         </div>

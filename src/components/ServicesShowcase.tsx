@@ -93,12 +93,12 @@ export default function ServicesShowcase() {
         </div>
 
         {/* Thumbnail Switcher */}
-        <div className="flex items-center gap-2.5 bg-black/60 backdrop-blur-md p-1.5 rounded-2xl border border-white/10 shadow-2xl">
+        <div className="flex items-center gap-2 sm:gap-2.5 bg-black/60 backdrop-blur-md p-1.5 rounded-2xl border border-white/10 shadow-2xl max-w-full overflow-x-auto no-scrollbar">
           {services.map((s, idx) => (
             <button
               key={s.id}
               onClick={() => setActiveTab(idx)}
-              className={`relative rounded-xl overflow-hidden w-20 sm:w-24 h-12 sm:h-14 transition-all duration-300 border cursor-pointer ${
+              className={`relative rounded-xl overflow-hidden w-20 sm:w-24 h-12 sm:h-14 transition-all duration-300 border cursor-pointer flex-shrink-0 ${
                 activeTab === idx
                   ? 'border-white ring-1 ring-white/40 scale-105'
                   : 'border-white/10 opacity-50 hover:opacity-90'

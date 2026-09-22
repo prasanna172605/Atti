@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import OvLogo from './OvLogo';
 
 export default function Navbar() {
@@ -166,40 +167,48 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Drawer */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-black/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4 mx-4 mt-2 rounded-2xl">
-            {navLinks.map((link) => {
-              if (link.isServices) {
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="md:hidden bg-black/95 backdrop-blur-2xl border border-white/10 px-6 py-6 space-y-4 mx-4 mt-2 rounded-2xl shadow-2xl"
+            >
+              {navLinks.map((link) => {
+                if (link.isServices) {
+                  return (
+                    <button
+                      key={link.label}
+                      onClick={handleServicesClick}
+                      className="block w-full text-left text-base font-medium text-neutral-300 hover:text-white transition-colors bg-transparent border-none p-0 cursor-pointer"
+                    >
+                      {link.label}
+                    </button>
+                  );
+                }
                 return (
-                  <button
+                  <Link
                     key={link.label}
-                    onClick={handleServicesClick}
-                    className="block w-full text-left text-base font-medium text-neutral-300 hover:text-white transition-colors bg-transparent border-none p-0 cursor-pointer"
+                    to={link.href!}
+                    className="block text-base font-medium text-neutral-300 hover:text-white transition-colors"
                   >
                     {link.label}
-                  </button>
+                  </Link>
                 );
-              }
-              return (
+              })}
+              <div className="pt-4 border-t border-white/10">
                 <Link
-                  key={link.label}
-                  to={link.href!}
-                  className="block text-base font-medium text-neutral-300 hover:text-white transition-colors"
+                  to="/contact"
+                  className="block w-full text-center py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-neutral-200 transition-colors"
                 >
-                  {link.label}
+                  Book Strategy Call
                 </Link>
-              );
-            })}
-            <div className="pt-4 border-t border-white/10">
-              <Link
-                to="/contact"
-                className="block w-full text-center py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-neutral-200 transition-colors"
-              >
-                Book Strategy Call
-              </Link>
-            </div>
-          </div>
-        )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
     </>
   );

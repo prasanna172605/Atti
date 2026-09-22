@@ -14,7 +14,7 @@ export default function HandsGetInTouch() {
       <img
         src={MAXGROWTH_ASSETS.contact.handsConnecting}
         alt="Get In Touch"
-        className="absolute inset-0 w-full h-full object-cover object-center opacity-90"
+        className="absolute inset-0 w-full h-full object-contain sm:object-cover object-center opacity-90 select-none pointer-events-none"
       />
       {/* Dark gradient overlay so text stays readable */}
       <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-black/60" />

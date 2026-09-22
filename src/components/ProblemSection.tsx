@@ -52,13 +52,20 @@ export default function ProblemSection() {
         </p>
 
         {/* ── 4-column diagnostic grid with circular icon containers ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-white/[0.08] rounded-2xl overflow-hidden bg-[#070709] divide-y lg:divide-y-0 lg:divide-x divide-white/[0.08]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-white/[0.08] rounded-2xl overflow-hidden bg-[#070709]">
           {problems.map((p, idx) => {
             const Icon = p.icon;
+            // Mathematically precise responsive borders
+            const borderClasses = 
+              idx === 0 ? "border-b md:border-b md:border-r lg:border-b-0 lg:border-r" :
+              idx === 1 ? "border-b md:border-b md:border-r-0 lg:border-b-0 lg:border-r" :
+              idx === 2 ? "border-b md:border-b-0 md:border-r lg:border-b-0 lg:border-r" :
+              "border-b-0 md:border-b-0 md:border-r-0 lg:border-b-0 lg:border-r-0";
+
             return (
               <div
                 key={idx}
-                className="p-8 flex flex-col justify-between hover:bg-[#0c0c10] transition-colors duration-200"
+                className={`p-8 flex flex-col justify-between hover:bg-[#0c0c10] transition-colors duration-200 border-white/[0.08] ${borderClasses}`}
               >
                 <div>
                   {/* Circular icon container like MaxGrowth */}

@@ -1,0 +1,10 @@
+name = "one-vision-contact"
+main = "src/index.js"
+compatibility_date = "2023-10-30"
+
+# Note: The following secrets must be set via `wrangler secret put <SECRET_NAME>`
+# BREVO_API_KEY
+# BREVO_SENDER_EMAIL
+# BREVO_SENDER_NAME
+# CONTACT_RECEIVER_EMAIL
+# BREVO_LIST_ID (Optional)

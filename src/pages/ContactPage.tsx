@@ -42,7 +42,8 @@ export default function ContactPage() {
     setErrorMessage(null);
 
     try {
-      const response = await fetch('/api/contact', {
+      const apiUrl = import.meta.env.VITE_CONTACT_API_URL || '/api/contact';
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -15,10 +15,10 @@ import HandsGetInTouch from '../components/HandsGetInTouch';
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "One Vision",
-  "image": "https://onevision.web.app/logo.jpeg",
-  "description": "One Vision is a premium digital solutions agency offering digital marketing, custom web development, content creation, and personal branding in Tamil Nadu.",
-  "url": "https://onevision.web.app",
+  "name": "One Vision Digital Solutions",
+  "image": "https://theonevision.in/logo.png",
+  "description": "One Vision Digital Solutions is a premium digital marketing agency offering website design, web development, and branding across Trichy and Ariyalur.",
+  "url": "https://theonevision.in",
   "telephone": "+91 63820 63842",
   "address": {
     "@type": "PostalAddress",
@@ -38,8 +38,8 @@ export default function HomePage() {
   return (
     <>
       <SEOHead 
-        title="One Vision | Digital Marketing & Web Development Agency in Tamil Nadu"
-        description="One Vision is a premium digital solutions agency offering digital marketing, custom web development, content creation, and personal branding in Tamil Nadu."
+        title="One Vision Digital Solutions | Digital Marketing & Web Development"
+        description="One Vision Digital Solutions is a premium digital marketing agency offering website design, web development, and branding across Trichy and Ariyalur."
         canonicalUrl="/"
         schema={localBusinessSchema}
       />

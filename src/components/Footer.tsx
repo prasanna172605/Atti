@@ -16,7 +16,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm text-neutral-400 max-w-sm leading-relaxed font-light">
-              We build high-converting websites, Google Ads, and lead generation systems for ambitious businesses.
+              We build high-converting websites, execute digital marketing campaigns, and design branding strategies for ambitious businesses across Trichy and Ariyalur.
             </p>
 
             <div className="pt-2 text-xs font-mono text-neutral-500">

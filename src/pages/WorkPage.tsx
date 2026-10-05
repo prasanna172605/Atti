@@ -93,7 +93,7 @@ export default function WorkPage() {
     <div className="bg-[#000000] text-white min-h-screen">
       <SEOHead 
         title="Our Work & Case Studies | One Vision Digital Solutions"
-        description="View our portfolio of high-converting websites and successful digital marketing campaigns built for ambitious businesses."
+        description="View our portfolio of high-converting websites and successful digital marketing campaigns built for ambitious businesses in Trichy and Ariyalur."
         canonicalUrl="/work"
       />
 

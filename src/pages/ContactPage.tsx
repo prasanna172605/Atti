@@ -7,10 +7,10 @@ import HandsGetInTouch from '../components/HandsGetInTouch';
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "One Vision",
-  "image": "https://onevision.web.app/logo.jpeg",
-  "description": "Ready to scale your business? Get in touch with One Vision in Ariyalur, Tamil Nadu for web development and digital marketing solutions.",
-  "url": "https://onevision.web.app",
+  "name": "One Vision Digital Solutions",
+  "image": "https://theonevision.in/logo.png",
+  "description": "Ready to scale your business? Get in touch with One Vision Digital Solutions in Ariyalur, Tamil Nadu for web development and digital marketing solutions.",
+  "url": "https://theonevision.in",
   "telephone": "+91 87606 68866",
   "address": {
     "@type": "PostalAddress",
@@ -71,8 +71,8 @@ export default function ContactPage() {
   return (
     <div className="bg-black text-white min-h-screen pt-36 pb-24 md:pt-48 md:pb-32 relative overflow-hidden">
       <SEOHead 
-        title="Contact One Vision | Digital Marketing Agency in Ariyalur"
-        description="Ready to scale your business? Get in touch with One Vision in Ariyalur, Tamil Nadu for web development and digital marketing solutions."
+        title="Contact One Vision Digital Solutions | Digital Marketing Agency in Ariyalur"
+        description="Ready to scale your business? Get in touch with One Vision Digital Solutions in Ariyalur, Tamil Nadu for web development and digital marketing solutions."
         canonicalUrl="/contact"
         schema={localBusinessSchema}
       />

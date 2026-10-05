@@ -34,7 +34,7 @@ export default function BlogPage() {
     <div className="pt-36 pb-24 sm:pt-44 sm:pb-32 bg-[#070e24]">
       <SEOHead 
         title="Insights & Strategy | One Vision Digital Solutions"
-        description="Practical strategies on web development, conversion architecture, UI/UX design, and brand authority from the One Vision team in Ariyalur."
+        description="Practical strategies on web development, digital marketing, and brand authority from the One Vision Digital Solutions team in Trichy and Ariyalur."
         canonicalUrl="/blog"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -11,7 +11,7 @@ const serviceSchema = {
   "name": "Digital Marketing and Web Development Services",
   "provider": {
     "@type": "LocalBusiness",
-    "name": "One Vision",
+    "name": "One Vision Digital Solutions",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Ariyalur",
@@ -19,8 +19,8 @@ const serviceSchema = {
       "addressCountry": "IN"
     }
   },
-  "areaServed": "Tamil Nadu",
-  "description": "Comprehensive digital solutions including UI/UX design, SEO, social media marketing, and custom website creation."
+  "areaServed": ["Trichy", "Ariyalur", "Tamil Nadu"],
+  "description": "Comprehensive digital solutions including digital marketing, custom website development, and digital branding."
 };
 
 export default function ServicesPage() {
@@ -136,8 +136,8 @@ export default function ServicesPage() {
   return (
     <div className="bg-black text-white min-h-screen">
       <SEOHead 
-        title="Digital Marketing, Web Design & SEO Services | One Vision"
-        description="Explore our comprehensive digital solutions including UI/UX design, SEO, social media marketing, and bespoke website creation for local and global brands."
+        title="Digital Marketing, Website Design & Branding Services | One Vision Digital Solutions"
+        description="Explore our comprehensive digital solutions including digital marketing, custom website development, and branding for businesses in Trichy and Ariyalur."
         canonicalUrl="/services"
         schema={serviceSchema}
       />

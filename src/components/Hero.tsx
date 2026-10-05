@@ -38,9 +38,7 @@ export default function Hero() {
           transition={{ duration: 0.7 }}
           className="text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-white leading-[1.08] max-w-4xl"
         >
-          We Build Lead Generation
-          <br />
-          Systems for
+          Digital Marketing &amp; Web Development for
           <br />
           <span className="font-serif italic font-normal text-neutral-300">
             Ambitious Businesses
@@ -54,7 +52,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mt-6 text-sm sm:text-base text-neutral-400 max-w-xl mx-auto font-normal leading-relaxed"
         >
-          We build connected digital and acquisition systems that help ambitious businesses attract the right clients, turn attention into inquiries, and create predictable growth.
+          One Vision Digital Solutions builds connected digital platforms and acquisition systems that help businesses in Trichy, Ariyalur, and beyond attract the right clients, turn attention into inquiries, and create predictable growth.
         </motion.p>
 
         {/* Primary CTA: Exact MaxGrowth dark rounded pill */}
